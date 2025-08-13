@@ -23,6 +23,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        if (config('database.default') === 'sqlite') {
+            $dbPath = database_path('database.sqlite');
+
+            // Kalau di Vercel, path-nya harus sesuai env
+            if (app()->environment('production')) {
+                $dbPath = env('DB_DATABASE');
+            }
+
+            if (!File::exists($dbPath)) {
+                File::put($dbPath, '');
+            }
+        }
     }
 }

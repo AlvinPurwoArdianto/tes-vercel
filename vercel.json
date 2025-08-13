@@ -1,15 +1,28 @@
 {
-  "version": 2,
-  "functions": {
-    "api/index.php": {
-      "runtime": "vercel-php-runtime@0.5.0"
-    }
-  },
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/api/index.php"
-    }
-  ]
-}
+    "version": 2,
+    "framework": null,
+    "functions": {
+        "api/index.php": {
+            "runtime": "vercel-php@0.6.0"
+        }
+    },
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "api/index.php"
+        }
+    ],
+    "env": {
+        "APP_ENV": "production",
+        "APP_DEBUG": "true",
+        "APP_URL": "https://tes-vercel.vercel.app",
+        "APP_KEY": "base64:S7cCCHwvSSdTOSIgFUayUzXcQ4snoQwdeLAQR61Cn78=",
 
+        "DB_CONNECTION": "mysql",
+        "DB_HOST": "01x9en.h.filess.io",
+        "DB_PORT": "3307",
+        "DB_DATABASE": "projectCompany_castleonto",
+        "DB_USERNAME": "projectCompany_castleonto",
+        "DB_PASSWORD": "a1d20a67e871c37fbb2000d60bf62f521e002db2"
+    }
+}

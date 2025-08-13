@@ -26,13 +26,13 @@ COPY . .
 RUN composer install --no-dev --optimize-autoloader
 
 # Generate app key
-RUN php artisan key:generate
+# RUN php artisan key:generate
 
 # Set permission storage dan bootstrap/cache (optional tapi direkomendasikan)
 RUN chown -R www-data:www-data storage bootstrap/cache
 
 # Expose port 8000 untuk Laravel serve
-EXPOSE 8000
+EXPOSE $PORT
 
 # Jalankan Laravel server pada port 8000
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
+CMD php artisan serve --host=0.0.0.0 --port=$PORT
